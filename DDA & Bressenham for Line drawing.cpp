@@ -60,7 +60,7 @@ void DDA(int x1,int y1,int x2,int y2)
         y += yin;
     }
 }
-void Bresenham(int x1,int y1,int x2,int y2)
+void Bressenham(int x1,int y1,int x2,int y2)
 {
     int dx = x2-x1;
     int dy = y2-y1;
@@ -83,7 +83,7 @@ int main()
     drawAxis();
 
     DDA(20, 30, 150, 100);
-    Bresenham(20, 30, 150, 100);
+    Bressenham(40, 50, 170, 120);
     getchar();
 
     return  0;
