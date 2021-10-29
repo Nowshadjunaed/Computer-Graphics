@@ -42,7 +42,6 @@ void DDA(int x1,int y1,int x2,int y2)
     if(dx==0)
     {
         if(y1>y2) swap(y1,y2);
-
         for(int i=y1;i<=y2;i++) drawPixel(x1,i,YELLOW);
         return ;
     }
@@ -55,15 +54,26 @@ void DDA(int x1,int y1,int x2,int y2)
 
     if(abs(dx)>=abs(dy))
     {
+        if(x1>x2)
+        {
+            swap(x1,x2);
+            swap(y1,y2);
+        }
         xin = 1;
         yin = m;
-        tot = abs(x2-x1)+1;
+        tot = x2-x1+1;
     }
     else
     {
+        if(y1>y2)
+        {
+            swap(x1,x2);
+            swap(y1,y2);
+        }
         yin = 1;
         xin = 1.0/m;
-        tot = abs(y2-y1) + 1;
+        tot = y2-y1 + 1;
+
     }
     double x = x1;
     double y = y1;
@@ -96,8 +106,8 @@ int main()
 
     drawAxis();
 
-    DDA(50, 100, 80, 100);
-   // DDA(20, 30, 150, 100);
+
+    DDA(20, 30, 150, 100);
     Bressenham(40, 50, 170, 120);
     getchar();
 
